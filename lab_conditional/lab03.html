@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess My Name</title>
+    <script>
+        function guessMyName() {
+            // รับ input จากผู้ใช้
+            let userInput = prompt("Guess my name:");
+
+            // ตรวจสอบว่า input ตรงกับชื่อของเราหรือไม่
+            if (userInput.toLowerCase() === "pitinan") {
+                alert("Correct! It's my name.");
+            } else {
+                alert("Wrong! It's not my name.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Guess My Name</h1>
+    <button onclick="guessMyName()">Start</button>
+</body>
+</html>

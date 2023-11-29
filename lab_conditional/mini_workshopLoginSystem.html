@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login System</title>
+    <script>
+        function login() {
+            // ถามชื่อผู้ใช้
+            let user = prompt("Enter your name:");
+
+            // ตรวจสอบ input เป็น string ว่างหรือกด Esc หรือไม่
+            if (user === "" || user === null) {
+                user = "guest";
+            } else if (user === "codecamp") {
+                // ถาม password ถ้าชื่อเป็น "codecamp"
+                let password = prompt("Enter your password:");
+
+                // ตรวจสอบ password
+                if (password === "123456") {
+                    // ถ้า password ถูกต้อง
+                    alert("Welcome " + user);
+                } else {
+                    // ถ้า password ไม่ถูกต้อง
+                    alert("Wrong password");
+                }
+            } else {
+                // ถ้าชื่อไม่ใช่ "codecamp"
+                user = "guest";
+                alert("Welcome " + user);
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Login System</h1>
+    <button onclick="login()">Login</button>
+</body>
+</html>

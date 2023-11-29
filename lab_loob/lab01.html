@@ -1,0 +1,62 @@
+<!--1. Sentinel, Terminate Condition-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculate Sum and Average</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="calculateSumAndAverage()">คำนวณผลรวมและค่าเฉลี่ย</button>
+
+    <script>
+        function calculateSumAndAverage() {
+            let sum = 0;
+            let count = 0;
+            let inputCount = 0;
+
+            while (true) {
+                let userInput = prompt("กรุณาป้อนตัวเลข (ป้อน 0 เพื่อหยุด):");
+
+                if (userInput === null) {
+                    alert("ยกเลิกการป้อนข้อมูล");
+                    break;
+                }
+
+                inputCount++;  // เพิ่มจำนวนครั้งที่ป้อนข้อมูล
+
+                let number = parseFloat(userInput);
+
+                if (!isNaN(number)) {
+                    sum += number;
+                    count++;
+                } else if (userInput === "0") {
+                    break;
+                } else {
+                    alert("โปรดป้อนตัวเลขที่ถูกต้อง");
+                }
+            }
+
+            if (count > 0) {
+                let average = sum / count;
+                alert("จำนวนครั้งที่ป้อนข้อมูล: " + inputCount + "\nผลรวม: " + sum + "\nค่าเฉลี่ย: " + average);
+            } else {
+                alert("ไม่มีตัวเลขที่ถูกป้อน");
+            }
+        }
+    </script>
+</body>
+</html>

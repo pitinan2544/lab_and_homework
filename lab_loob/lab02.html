@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Number Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="startGame()">เริ่มเกม</button>
+
+    <script>
+        function startGame() {
+            // ผู้เล่นคนแรกเลือกตัวเลข
+            let secretNumber = Math.floor(Math.random() * 99) + 1;
+
+            let guessCount = 0;
+
+            while (true) {
+                let userGuess = prompt("ทายตัวเลข (1-99):");
+
+                if (userGuess === null) {
+                    alert("ยกเลิกการเล่นเกม");
+                    break;
+                }
+
+                let guess = parseInt(userGuess);
+
+                if (!isNaN(guess) && guess >= 1 && guess <= 99) {
+                    guessCount++;
+
+                    if (guess === secretNumber) {
+                        alert("ถูกต้อง! คำตอบคือ " + secretNumber + "\nทายถูกในครั้งที่ " + guessCount);
+                        break;
+                    } else {
+                        let message = guess > secretNumber ? "มากเกินไป" : "น้อยเกินไป";
+                        alert("ทายผิด! " + message + "\nครั้งที่ทาย: " + guessCount);
+                    }
+                } else {
+                    alert("โปรดทายตัวเลขที่ถูกต้อง (1-99)");
+                }
+            }
+        }
+    </script>
+</body>
+</html>

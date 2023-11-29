@@ -1,0 +1,31 @@
+<!--LAB-7 : Mini workShop - Validate Login-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <script>
+        function login() {
+            // รับ input จากผู้ใช้
+            let inputUsername = prompt("Enter username:");
+            let inputPassword = prompt("Enter password:");
+
+            // ตรวจสอบ username และ password
+            if (inputUsername.trim() === "") {
+                alert("Username is required");
+            } else if (inputPassword.trim() === "") {
+                alert("Password is required");
+            } else if ((inputUsername === "admin" && inputPassword === "1234") || (inputUsername === "john" && inputPassword === "qwerty")) {
+                alert("Hello " + inputUsername);
+            } else {
+                alert("Invalid username or password");
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Login Page</h1>
+    <button onclick="login()">Login</button>
+</body>
+</html>
